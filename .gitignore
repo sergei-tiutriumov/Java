@@ -1,0 +1,46 @@
+### Сгенерированные файлы ###
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.log
+
+### Файлы IDE ###
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+
+### Системные файлы ###
+.DS_Store
+Thumbs.db
+
+### Логи и кэши ###
+logs/
+*.log
+tmp/
+*.tmp
+
+### Файлы сборки ###
+target/
+build/
+out/
+bin/
+dist/
+
+### Конфиги и зависимости ###
+*.properties
+*.cfg
+*.cache
+*.lock
+*.bak
+
+### Другие специфичные файлы ###
+.env
+*.orig
+*.rej 
+
+
