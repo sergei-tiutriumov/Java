@@ -83,8 +83,8 @@ public class VariableNamesTheme {
         System.out.println("имя работника месяца " + theBestWorkerOfTheMonth);
 
         // название электронной книги 
-        String eBookTitle = "Silence of lambs";
-        System.out.println("название электронной книги " + eBookTitle);
+        String ebookTitle = "Silence of lambs";
+        System.out.println("название электронной книги " + ebookTitle);
 
         // размер
         float size = 37.6f;
@@ -108,8 +108,8 @@ public class VariableNamesTheme {
         System.out.println("             \n2. BOOLEAN-ПЕРЕМЕННЫЕ");
 
         // сотни равны?
-        boolean HundredsEqual = true;
-        System.out.println("Сотни равны? " + HundredsEqual);
+        boolean hundredsEqual = true;
+        System.out.println("Сотни равны? " + hundredsEqual);
 
         // компьютер включен?
         boolean isComputerWorking = false;
@@ -124,20 +124,20 @@ public class VariableNamesTheme {
         System.out.println("служба создана? " + isServiceCreated);
 
         // файл пустой?
-        boolean Empty = false;
-        System.out.println("файл пустой? " + Empty);
+        boolean empty = false;
+        System.out.println("файл пустой? " + empty);
 
         // соединение активное?
-        boolean Active = true;
-        System.out.println("соединение активное?" + Active);
+        boolean active = true;
+        System.out.println("соединение активное?" + active);
 
         // новый?
         boolean isNew = false;
         System.out.println("Новый? " + isNew);
 
         // электронная почта действительная?
-        boolean Valid = true;
-        System.out.println("электронная почта действительная? " + Valid);
+        boolean valid = true;
+        System.out.println("электронная почта действительная? " + valid);
 
         // имеются уникальные строки?
         boolean linesUnique = false; 
@@ -149,24 +149,24 @@ public class VariableNamesTheme {
         System.out.println("старый universally unique identifier " + oldUuid);
 
         // производитель оперативной памяти
-        String ramMnf = "ADATA";
-        System.out.println("производитель оперативной памяти " + ramMnf);
+        String ramManufacturer = "ADATA";
+        System.out.println("производитель оперативной памяти " + ramManufacturer);
 
         // емкость жесткого диска
-        String HDDCapasity = "Magabyte";
-        System.out.println("Емкость жесткого диска в " + HDDCapasity);
+        String hddCapacity = "Magabyte";
+        System.out.println("Емкость жесткого диска в " + hddCapacity);
 
         // определение термина протокола передачи гипертекста
-        String HTTPDeterm = "Hypertext Transfer Protocol";
-        System.out.println(HTTPDeterm + " это протокол прикладного уровня для передачи данных");
+        String httpDetermination = "Hypertext Transfer Protocol";
+        System.out.println(httpDetermination + " это протокол прикладного уровня для передачи данных");
 
         // сокращенный Uniform Resource Locator 
-        String ShortURL = "ShortURL Uniform Resourse Locator";
-        System.out.println(ShortURL + "это адрес ресурса в интернете");
+        String shortUrl = "ShortURL Uniform Resourse Locator";
+        System.out.println(shortUrl + "это адрес ресурса в интернете");
 
         // новый идентификатор клиента
-        String NewClientID = "New Client ID";
-        System.out.println(NewClientID + " новый идентификатор клиента");
+        String newClientId = "New Client ID";
+        System.out.println(newClientId + " новый идентификатор клиента");
 
         // количество символов в american standard code for information interchange
         String asciiSymbolsNumber = "american standard code for information interchange";
