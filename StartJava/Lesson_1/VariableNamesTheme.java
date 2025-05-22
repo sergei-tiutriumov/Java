@@ -11,12 +11,12 @@ public class VariableNamesTheme {
         System.out.println("сумма чисел = " + digitSum);
 
         // максимальное число
-        int digitMax = Math.max(1, 3);
-        System.out.println("максимальное число = " + digitMax);
+        int maxDigit = Math.max(1, 3);
+        System.out.println("максимальное число = " + maxDigit);
 
         // количество десятков 
-        int decimals = 123 / 10;
-        System.out.println("количество десятков = " + decimals);
+        int tens = 123 / 10;
+        System.out.println("количество десятков = " + tens);
 
         // вес собаки
         float dogWeight = 13.6f;
@@ -79,8 +79,8 @@ public class VariableNamesTheme {
         System.out.println("окончание диапазона " + finalDate);
 
         // имя работника месяца
-        String theBestWorkerOfTheMonth = "Ччурахон";
-        System.out.println("имя работника месяца " + theBestWorkerOfTheMonth);
+        String employeeOfMonthName = "Жора";
+        System.out.println("имя работника месяца " + employeeOfMonthName);
 
         // название электронной книги 
         String ebookTitle = "Silence of lambs";
@@ -103,29 +103,30 @@ public class VariableNamesTheme {
         System.out.println("путь до файла " + filePath);
 
         // количество чисел в строке
-        int amountOfNumbers = 13;
-        System.out.println("количество чисел в строке " + amountOfNumbers);
-        System.out.println("             \n2. BOOLEAN-ПЕРЕМЕННЫЕ");
+        int numbersPerLine = 13;
+        System.out.println("количество чисел в строке " + numbersPerLine);
+
+        System.out.println("\n2. BOOLEAN-ПЕРЕМЕННЫЕ");
 
         // сотни равны?
-        boolean hundredsEqual = true;
-        System.out.println("Сотни равны? " + hundredsEqual);
+        boolean isEqual = true;
+        System.out.println("Сотни равны? " + isEqual);
 
         // компьютер включен?
-        boolean isComputerWorking = false;
-        System.out.println("Компьютер включен? " + isComputerWorking);
+        boolean isActive = false;
+        System.out.println("Компьютер включен? " + isActive);
 
         // есть равные цифры?
-        boolean hasEqualDidgits = true;
-        System.out.println("Есть равные цифры? " + hasEqualDidgits);
+        boolean hasEqual = true;
+        System.out.println("Есть равные цифры? " + hasEqual);
 
         // служба создана?
-        boolean isServiceCreated = true;
-        System.out.println("служба создана? " + isServiceCreated);
+        boolean isCreated = true;
+        System.out.println("служба создана? " + isCreated);
 
         // файл пустой?
-        boolean empty = false;
-        System.out.println("файл пустой? " + empty);
+        boolean isEmpty = false;
+        System.out.println("файл пустой? " + isEmpty);
 
         // соединение активное?
         boolean active = true;
@@ -136,13 +137,14 @@ public class VariableNamesTheme {
         System.out.println("Новый? " + isNew);
 
         // электронная почта действительная?
-        boolean valid = true;
-        System.out.println("электронная почта действительная? " + valid);
+        boolean isEmailValid = true;
+        System.out.println("электронная почта действительная? " + isEmailValid);
 
         // имеются уникальные строки?
         boolean linesUnique = false; 
         System.out.println("имеются уникальные строки? " + linesUnique);
-        System.out.println("               \n3. АББРЕВИАТУРЫ");
+
+        System.out.println("\n3. АББРЕВИАТУРЫ");
 
         // старый universally unique identifier
         String oldUuid = "UUID_v1";
@@ -153,7 +155,7 @@ public class VariableNamesTheme {
         System.out.println("производитель оперативной памяти " + ramManufacturer);
 
         // емкость жесткого диска
-        String hddCapacity = "Magabyte";
+        String hddCapacity = "Megabyte";
         System.out.println("Емкость жесткого диска в " + hddCapacity);
 
         // определение термина протокола передачи гипертекста
@@ -161,15 +163,15 @@ public class VariableNamesTheme {
         System.out.println(httpDetermination + " это протокол прикладного уровня для передачи данных");
 
         // сокращенный Uniform Resource Locator 
-        String shortUrl = "ShortURL Uniform Resourse Locator";
+        String shortUrl = "ShortURL Uniform Resource Locator";
         System.out.println(shortUrl + "это адрес ресурса в интернете");
 
         // новый идентификатор клиента
         String newClientId = "New Client ID";
         System.out.println(newClientId + " новый идентификатор клиента");
 
-        // количество символов в american standard code for information interchange
-        String asciiSymbolsNumber = "american standard code for information interchange";
+        // количество символов в American standard code for information interchange
+        String asciiSymbolsNumber = "American standard code for information interchange";
         System.out.println("128 символов насчитывается в " + asciiSymbolsNumber); 
     }
 }
