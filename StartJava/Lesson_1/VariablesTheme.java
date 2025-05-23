@@ -72,6 +72,17 @@ J  J  /      \\  V V  aaaaa
         for (int j = 0; j < ch.length; j++) {
             System.out.printf("%-5s", (char) ch[j]);
         }
-        System.out.println();
+        System.out.println("\n\n5. Анализ кода товара");
+        int itemCode = 184;
+        int category = itemCode / 100;
+        int subCategory = itemCode % 100 / 10;
+        int wrapType = itemCode % 10;
+        int checkSum = category + subCategory + wrapType;
+        int checkCode = category * subCategory * wrapType;
+        System.out.println("Товар " + itemCode + "\n" + "Категория " + category + 
+                            "\n Подкатегория  " + subCategory + 
+                            "\n Тип упаковки " + wrapType + 
+                            "\nКонтрольная сумма = " + checkSum +
+                            "\nПроверочный код = " + checkCode);
     }
 }
