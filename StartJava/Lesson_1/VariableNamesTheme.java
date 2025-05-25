@@ -109,40 +109,40 @@ public class VariableNamesTheme {
         System.out.println("\n2. BOOLEAN-ПЕРЕМЕННЫЕ");
 
         // сотни равны?
-        boolean isEqual = true;
-        System.out.println("Сотни равны? " + isEqual);
+        boolean isHundredsEqual = true;
+        System.out.println("Сотни равны? " + isHundredsEqual);
 
         // компьютер включен?
-        boolean isActive = false;
-        System.out.println("Компьютер включен? " + isActive);
+        boolean isComputerActive = false;
+        System.out.println("Компьютер включен? " + isComputerActive);
 
         // есть равные цифры?
-        boolean hasEqual = true;
-        System.out.println("Есть равные цифры? " + hasEqual);
+        boolean hasEqualDigits = true;
+        System.out.println("Есть равные цифры? " + hasEqualDigits);
 
         // служба создана?
-        boolean isCreated = true;
-        System.out.println("служба создана? " + isCreated);
+        boolean isServiceCreated = true;
+        System.out.println("служба создана? " + isServiceCreated);
 
         // файл пустой?
-        boolean isEmpty = false;
-        System.out.println("файл пустой? " + isEmpty);
+        boolean isFileEmpty = false;
+        System.out.println("файл пустой? " + isFileEmpty);
 
         // соединение активное?
-        boolean active = true;
-        System.out.println("соединение активное?" + active);
+        boolean isConnectionActive = true;
+        System.out.println("соединение активное?" + isConnectionActive);
 
         // новый?
         boolean isNew = false;
         System.out.println("Новый? " + isNew);
 
         // электронная почта действительная?
-        boolean isEmailValid = true;
-        System.out.println("электронная почта действительная? " + isEmailValid);
+        boolean isValidEmail = true;
+        System.out.println("электронная почта действительная? " + isValidEmail);
 
         // имеются уникальные строки?
-        boolean linesUnique = false; 
-        System.out.println("имеются уникальные строки? " + linesUnique);
+        boolean hasUniqueLines = false; 
+        System.out.println("имеются уникальные строки? " + hasUniqueLines);
 
         System.out.println("\n3. АББРЕВИАТУРЫ");
 
