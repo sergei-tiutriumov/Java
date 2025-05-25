@@ -115,38 +115,38 @@ public class VariablesTheme {
         int availableNumberOfCores = Runtime.getRuntime().availableProcessors();
         String availableNumberOfCoresDescription = """ 
                                                 Доступное число ядер виртуальной машины""";
-        System.out.println(availableNumberOfCoresDescription + " " + availableNumberOfCores);
         double fullAvailableMemory = Runtime.getRuntime().totalMemory() / 1048576;
         String fullAvailableMemoryDescription = """
                                             Общее количество памяти виртуальной машины Java""";
-        System.out.printf(fullAvailableMemoryDescription + " %.1f Мб\n", fullAvailableMemory);
         double freeAvailableMemory = Runtime.getRuntime().freeMemory() / 1048576;
         String freeAvailableMemoryDescription = """
                                                 Свободная память""";
-        System.out.printf(freeAvailableMemoryDescription + " %.1f Мб\n", freeAvailableMemory);
         double usedMemory = fullAvailableMemory - freeAvailableMemory;
         String usedMemoryDescription = """
                                         Используемая в данный момент виртуальной машиной память""";
-        System.out.printf(usedMemoryDescription + " %.1f Мб\n", usedMemory);
         double maxAvailableMemory = Runtime.getRuntime().maxMemory() / 1048576;
         String maxAvailableMemoryDescription = """
                                               Максимально доступная память""";
-        System.out.printf(maxAvailableMemoryDescription + " %.1f Мб\n", maxAvailableMemory);
         String homeDirectory = System.getProperty("user.home");
         String homeDirectoryDescription = """
                                         Домашняя директория""";
-        System.out.printf(homeDirectoryDescription + " %s\n", homeDirectory);
         String osVersion = System.getProperty("os.version");
         String osVersionDescription = """
                                     Версия операционной системы""";
-        System.out.printf(osVersionDescription + " %s\n", osVersion);
         String javaVersion = System.getProperty("java.version");
         String javaVersionDescription = """
                                         Версия java""";
-        System.out.printf(javaVersionDescription + " %s\n", javaVersion);
         String fileSeparator = System.getProperty("file.separator");
         String fileSeparatorDescription = """
                                         символ разделения пути""";
+        System.out.println(availableNumberOfCoresDescription + " " + availableNumberOfCores);
+        System.out.printf(fullAvailableMemoryDescription + " %.1f Мб\n", fullAvailableMemory);
+        System.out.printf(freeAvailableMemoryDescription + " %.1f Мб\n", freeAvailableMemory);
+        System.out.printf(usedMemoryDescription + " %.1f Мб\n", usedMemory);
+        System.out.printf(maxAvailableMemoryDescription + " %.1f Мб\n", maxAvailableMemory);
+        System.out.printf(homeDirectoryDescription + " %s\n", homeDirectory);
+        System.out.printf(osVersionDescription + " %s\n", osVersion);
+        System.out.printf(javaVersionDescription + " %s\n", javaVersion);
         System.out.printf(fileSeparatorDescription + " %s\n", fileSeparator);
         long finish = System.nanoTime();
         double timeElapsed = (finish - start) * 1.0 / 1000000000;

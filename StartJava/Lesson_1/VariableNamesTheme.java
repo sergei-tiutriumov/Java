@@ -109,12 +109,12 @@ public class VariableNamesTheme {
         System.out.println("\n2. BOOLEAN-ПЕРЕМЕННЫЕ");
 
         // сотни равны?
-        boolean isHundredsEqual = true;
-        System.out.println("Сотни равны? " + isHundredsEqual);
+        boolean isEqualHundreds = true;
+        System.out.println("Сотни равны? " + isEqualHundreds);
 
         // компьютер включен?
-        boolean isComputerActive = false;
-        System.out.println("Компьютер включен? " + isComputerActive);
+        boolean isActiveComputer = false;
+        System.out.println("Компьютер включен? " + isActiveComputer);
 
         // есть равные цифры?
         boolean hasEqualDigits = true;
@@ -125,12 +125,12 @@ public class VariableNamesTheme {
         System.out.println("служба создана? " + isServiceCreated);
 
         // файл пустой?
-        boolean isFileEmpty = false;
-        System.out.println("файл пустой? " + isFileEmpty);
+        boolean isEmptyFile = false;
+        System.out.println("файл пустой? " + isEmptyFile);
 
         // соединение активное?
-        boolean isConnectionActive = true;
-        System.out.println("соединение активное?" + isConnectionActive);
+        boolean isActiveConnection = true;
+        System.out.println("соединение активное?" + isActiveConnection);
 
         // новый?
         boolean isNew = false;
