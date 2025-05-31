@@ -121,8 +121,8 @@ public class VariableNamesTheme {
         System.out.println("Есть равные цифры? " + hasEqualDigits);
 
         // служба создана?
-        boolean isServiceCreated = true;
-        System.out.println("служба создана? " + isServiceCreated);
+        boolean isCreatedService = true;
+        System.out.println("служба создана? " + isCreatedService);
 
         // файл пустой?
         boolean isEmptyFile = false;
