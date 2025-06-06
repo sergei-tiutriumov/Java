@@ -7,22 +7,21 @@ public class VariablesTheme {
     public static void main(String[] args) {
         final long start = System.nanoTime();
         final LocalTime startTime = LocalTime.now();
-        System.out.println("1. ВЫВОД ASCII-ГРАФИКИ");
+
+        System.out.println("\n1. ВЫВОД ASCII-ГРАФИКИ");
         System.out.println(
                 "                     /\\ \n" +
                 "   J    a  v     v  /  \\ \n" +
                 "   J   a a  v   v  /_( )\\ \n" +
                 "J  J  aaaaa  V V  /      \\ \n" +
-                " JJ  a     a  V  /___/\\___\\ \n          \n ");
-        String word = """
-                 /\\            
-           J    /  \\  v     v  a
-           J   /_( )\\  v   v  a a
-        J  J  /      \\  V V  aaaaa
-        JJ  /___/\\___\\  V  a     a
-                        """;
-
-        System.out.println(word);
+                " JJ  a     a  V  /___/\\___\\ \n");
+        System.out.println("""
+                         /\\            
+                   J    /  \\  v     v  a
+                   J   /_( )\\  v   v  a a
+                J  J  /      \\  V V  aaaaa
+                 JJ  /___/\\___\\  V  a     a
+                """);
 
         System.out.println("2. РАСЧЕТ СТОИМОСТИ ТОВАРА");
         float penPrice = 10.5f;
@@ -34,7 +33,6 @@ public class VariablesTheme {
                 bookPrice + " рублей за книгу\n" + 
                 "сумма скидки " + discount + "%\n" + 
                 "стоимость товаров со скидкой " + priceTogether + " рублей\n\n");
-
         var penPriceBd = new BigDecimal("10.5");
         var bookPriceBd = new BigDecimal("235.23");
         var discountBd = new BigDecimal("11");
@@ -80,7 +78,7 @@ public class VariablesTheme {
         System.out.printf("%d %d %d %d %d %d %n", ch1, ch2, ch3, ch4, ch5, ch6);
         System.out.printf("%-4c %-4c %-4c %-4c %-4c %-4c ", ch1, ch2, ch3, ch4, ch5, ch6);
         
-        System.out.println("\n\n5. Анализ кода товара");
+        System.out.println("\n\n5. АНАЛИЗ КОДА");
         int itemCode = 184;
         int category = itemCode / 100;
         int subCategory = itemCode % 100 / 10;
@@ -150,7 +148,7 @@ public class VariablesTheme {
             3. Свободная память: %.1f Мб
             4. Используемая память: %.1f Мб
             5. Максимально доступная память: %.1f Мб
-            """, availableCpus, totalMemory, freeMemory, usedMemory, maxMemory);
+                """, availableCpus, totalMemory, freeMemory, usedMemory, maxMemory);
         long finish = System.nanoTime();
         double timeElapsed = (finish - start) * 1.0 / 1000000000;
         var timeElapsedRounded = Math.round(timeElapsed * 1000) / 1000.0;
