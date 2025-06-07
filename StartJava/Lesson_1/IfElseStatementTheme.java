@@ -1,5 +1,6 @@
 public class IfElseStatementTheme {
     public static void main(String[] args) {
+        
         System.out.println("\n\n1. ПЕРЕВОД ПСЕВДОКОДА НА ЯЗЫК JAVA");
         boolean isMan = true;
         if (!isMan) {
@@ -19,6 +20,7 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Довольно высокий");
         }
+
         System.out.println("\n2. ПОИСК БОЛЬШЕГО ЧИСЛА ШАГОВ");
         double yesterday = 6503.0;
         double today = 7804.0;
@@ -32,7 +34,8 @@ public class IfElseStatementTheme {
             System.out.println("Вчера было пройдено больше, чем сегодня");
         }
         System.out.printf("В среднем за день было пройдено %.2f шагов", average);
-        System.out.println("\n\n3. Проверка количества гостей");
+
+        System.out.println("\n\n3. ПРОВЕРКА КОЛИЧЕСТВА ГОСТЕЙ");
         int visitors = 2;
         if (visitors == 0) {
             System.out.println("Пока никто не записался на мероприятие!");
@@ -43,6 +46,7 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Записалось " + visitors + " гостей. Нужны индивидуальные задания.");
         }
+        
         System.out.println("\n4. ОПРЕДЕЛЕНИЕ ПЕРВОГО СИМВОЛА НИКНЕЙМА");
         System.out.println("\n через вхождение в диапазон ASCII кодов");
         String nickname = "John";
