@@ -145,16 +145,30 @@ public class VariablesTheme {
                 3. Свободная память: %.1f Мб
                 4. Используемая память: %.1f Мб
                 5. Максимально доступная память: %.1f Мб
-                """, availableCpus, totalMemory, freeMemory, usedMemory, maxMemory);
-        long finish = System.nanoTime();
+                6. Домашняя директория: %s
+                7. Версия системы: %s
+                8. Версия Java: %s
+                9. Файловый разделитель: %s
+                """, availableCpus, totalMemory, freeMemory, usedMemory, maxMemory,
+                homeDirectory, osVersion, javaVersion, fileSeparator);
 
         System.out.println("\n\n8. ЗАМЕР ВРЕМЕНИ РАБОТЫ КОДА");
+        long finish = System.nanoTime();
         double timeElapsed = (finish - start) * 1.0 / 1e9;
         var timeElapsedRounded = Math.round(timeElapsed * 1e3) / 1e3;
         LocalTime finishTime = LocalTime.now();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
-        System.out.println("Старт проверки:\n" + dtf.format(startTime) + 
+        String startFormatted = dtf.format(startTime);
+        String finishFormatted = dtf.format(finishTime);
+        System.out.printf("""
+                Старт проверки: 
+                %s
+                Финиш проверки:
+                %s
+                Время работы: %s сек
+                """, startFormatted, finishFormatted, timeElapsedRounded);
+        /*System.out.println("Старт проверки:\n" + dtf.format(startTime) + 
                 "\nФиниш проверки:\n" + dtf.format(finishTime) +
-                "\nВремя работы: " + timeElapsedRounded + " сек");
+                "\nВремя работы: " + timeElapsedRounded + " сек");*/
     }
 }
