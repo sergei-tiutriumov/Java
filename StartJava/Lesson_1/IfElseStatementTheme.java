@@ -1,6 +1,5 @@
 public class IfElseStatementTheme {
     public static void main(String[] args) {
-        
         System.out.println("\n\n1. ПЕРЕВОД ПСЕВДОКОДА НА ЯЗЫК JAVA");
         boolean isMan = true;
         if (!isMan) {
@@ -42,33 +41,32 @@ public class IfElseStatementTheme {
         } else if (visitors < 0) {
             System.out.println("Ошибка! только натуральные числа");
         } else if (visitors % 2 == 0) {
-            System.out.println("Записалось " + visitors + " гостей. Можно формировать пары для конкурсов");
+            System.out.printf("Записалось %d гостей. Можно формировать пары для конкурсов.", visitors);
         } else {
-            System.out.println("Записалось " + visitors + " гостей. Нужны индивидуальные задания.");
+            System.out.printf("Записалось %d гостей. Нужны индивидуальные задания.", visitors);
         }
         
-        System.out.println("\n4. ОПРЕДЕЛЕНИЕ ПЕРВОГО СИМВОЛА НИКНЕЙМА");
+        System.out.println("\n\n4. ОПРЕДЕЛЕНИЕ ПЕРВОГО СИМВОЛА НИКНЕЙМА");
         System.out.println("\n через вхождение в диапазон ASCII кодов");
         String nickname = "John";
         char firstSymbol = nickname.charAt(0);
-        if ((int)firstSymbol > 96 && (int)firstSymbol < 123) {
-            System.out.printf("Имя %s начинается с маленькой буквы %s%n", nickname,firstSymbol);
-        } else if (((int)firstSymbol >= 65 && (int)firstSymbol <= 90)) {
-            System.out.printf("Имя %s начинается с большой буквы %s%n", nickname,firstSymbol);
-        } else if (((int)firstSymbol >= 48 && (int)firstSymbol <= 57)) {
-            System.out.printf("Имя %s начинается с цифры %s%n", nickname,firstSymbol);
-        } else if (((int)firstSymbol >= 0 && (int)firstSymbol <= 47) || 
-                ((int)firstSymbol >= 58 && (int)firstSymbol <= 64) || 
-                ((int)firstSymbol >= 91 && (int)firstSymbol <= 96) || 
-                ((int)firstSymbol >= 123 && (int)firstSymbol <= 127)) {
-            System.out.printf("Имя %s начинается с символа %s%n", nickname,firstSymbol);
+        if ((int) firstSymbol > 96 && (int) firstSymbol < 123) {
+            System.out.printf("Имя %s начинается с маленькой буквы %s%n", nickname, firstSymbol);
+        } else if (((int) firstSymbol >= 65 && (int) firstSymbol <= 90)) {
+            System.out.printf("Имя %s начинается с большой буквы %s%n", nickname, firstSymbol);
+        } else if (((int) firstSymbol >= 48 && (int) firstSymbol <= 57)) {
+            System.out.printf("Имя %s начинается с цифры %s%n", nickname, firstSymbol);
+        } else if (((int) firstSymbol >= 0 && (int) firstSymbol <= 47) || 
+                ((int) firstSymbol >= 58 && (int) firstSymbol <= 64) || 
+                ((int) firstSymbol >= 91 && (int) firstSymbol <= 96) || 
+                ((int) firstSymbol >= 123 && (int) firstSymbol <= 127)) {
+            System.out.printf("Имя %s начинается с символа %s%n", nickname, firstSymbol);
         }
         System.out.println("\n через Class Character");
         if (Character.isLetter(firstSymbol) && Character.isLowerCase(firstSymbol)) {
-           System.out.printf("Имя %s начинается с маленькой буквы %s%n ", nickname,firstSymbol);
+            System.out.printf("Имя %s начинается с маленькой буквы %s%n ", nickname, firstSymbol);
         } else if (Character.isLetter(firstSymbol) && Character.isUpperCase(firstSymbol)) {
-           System.out.printf("Имя %s начинается с большой буквы %s%n ", nickname,firstSymbol);
+            System.out.printf("Имя %s начинается с большой буквы %s%n ", nickname, firstSymbol);
         } 
-
     }
 }
