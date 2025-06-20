@@ -1,3 +1,6 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class IfElseStatementTheme {
     public static void main(String[] args) {
         System.out.println("\n\n1. ПЕРЕВОД ПСЕВДОКОДА НА ЯЗЫК JAVA");
@@ -68,5 +71,61 @@ public class IfElseStatementTheme {
         } else if (Character.isLetter(firstSymbol) && Character.isUpperCase(firstSymbol)) {
             System.out.printf("Имя %s начинается с большой буквы %s%n ", nickname, firstSymbol);
         } 
+
+        System.out.println("\n\n5. ИНВЕНТАРИЗАЦИЯ");
+        int databaseNumber = 123;
+        int pcNumber = 923;
+        if (databaseNumber == pcNumber) {
+            System.out.printf("[№%d]: компьютер на 3-м этаже в кабинете 2 \n", pcNumber);
+        } else {
+            char hundreds = (databaseNumber / 100) == (pcNumber / 100) ?
+                    (char) (databaseNumber / 100 + '0') : '_';
+            char tens = (databaseNumber % 100 / 10) == (pcNumber % 100 / 10) ?
+                    (char) (pcNumber % 100 / 10 + '0') : '_';
+            char units = (databaseNumber % 10) == (pcNumber % 10) ?
+                    (char) (databaseNumber % 10 + '0') : '_';
+            String fact = "" + hundreds + tens + units;
+            if (!fact.equals("___")) {
+                System.out.printf("""
+                        Нет полного совпадения:
+                        База данных: [№%d]
+                        Фактический: [№%c%c%c]
+                        """, databaseNumber, hundreds, tens, units);
+            } else {
+                System.out.printf("[№%d]: оборудование не идентифицированно\n", pcNumber);
+            }
+        }
+
+        System.out.println("\n\n 6. ПОДСЧЕТ НАЧИСЛЕННЫХ БАНКОМ %");
+        System.out.println("Первый способ, числа float без округления");
+        float deposit = 321123.79f;
+        float time = 1.0f;
+        float interestRate;
+        if (deposit < 100000) {
+            interestRate = 0.05f;
+        } else if (deposit >= 100000 && deposit <= 300000) {
+            interestRate = 0.07f;
+        } else {
+            interestRate = 0.1f;
+        }
+        float interests = deposit * time * interestRate;
+        float finalMoney = deposit + interests;
+        System.out.printf("""
+                Сумма вклада %f
+                Сумма начисленного %f
+                Итоговая сумма  с %% %f
+                \n""", deposit, interests, finalMoney);
+
+        System.out.println("Второй способ, через BigDecimal c округлением");
+        var depositBd = new BigDecimal("321123.79");
+        var interestsBd = depositBd
+                .multiply(BigDecimal.valueOf(time))
+                .multiply(BigDecimal.valueOf(interestRate));
+        var finalMoneyBd = depositBd.add(interestsBd).setScale(2, RoundingMode.HALF_UP);
+        System.out.printf("""
+                Сумма вклада %.2f
+                Сумма начисленного %.2f
+                Итоговая сумма  с %% %.2f
+                \n""", depositBd, interests, finalMoneyBd);
     }
 }
