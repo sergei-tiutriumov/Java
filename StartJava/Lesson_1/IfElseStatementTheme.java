@@ -2,6 +2,18 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class IfElseStatementTheme {
+    public static int grade(int percentage) {
+        if (percentage <= 60) {
+            return 2;
+        } else if (percentage < 73) {
+            return 3;
+        } else if (percentage < 91) {
+            return 4;
+        } else {
+            return 5;
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("\n\n1. ПЕРЕВОД ПСЕВДОКОДА НА ЯЗЫК JAVA");
         boolean isMan = true;
@@ -24,18 +36,19 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n2. ПОИСК БОЛЬШЕГО ЧИСЛА ШАГОВ");
-        double yesterday = 6503.0;
-        double today = 7804.0;
-        double average = (yesterday + today) / 2;
-        System.out.printf("Вчера было пройдено %.0f шагов, а сегодня %.0f шагов.%n", yesterday, today);
-        if (yesterday == today) {
+        int stepsYesterdayAmount = 6503;
+        int stepsTodayAmount = 7804;
+        var stepsAverageAmount = (float) (stepsTodayAmount + stepsYesterdayAmount) / 2;
+        System.out.printf("Вчера было пройдено %d шагов, а сегодня %d шагов.%n", 
+                stepsYesterdayAmount, stepsTodayAmount);
+        if (stepsYesterdayAmount == stepsTodayAmount) {
             System.out.println("За последние два дня было пройдено равное количество шагов");
-        } else if (yesterday < today) {
+        } else if (stepsTodayAmount > stepsYesterdayAmount) {
             System.out.println("Сегодня было пройдено больше, чем вчера");
         } else {
             System.out.println("Вчера было пройдено больше, чем сегодня");
         }
-        System.out.printf("В среднем за день было пройдено %.2f шагов", average);
+        System.out.printf("В среднем за день было пройдено %.2f шагов", stepsAverageAmount);
 
         System.out.println("\n\n3. ПРОВЕРКА КОЛИЧЕСТВА ГОСТЕЙ");
         int visitors = 2;
@@ -51,27 +64,28 @@ public class IfElseStatementTheme {
         
         System.out.println("\n\n4. ОПРЕДЕЛЕНИЕ ПЕРВОГО СИМВОЛА НИКНЕЙМА");
         System.out.println("\n через вхождение в диапазон ASCII кодов");
-        String nickname = "John";
+        String nickname = "1John";
+        String register = "";
         char firstSymbol = nickname.charAt(0);
-        if ((int) firstSymbol > 96 && (int) firstSymbol < 123) {
+        if (firstSymbol > 'a' && firstSymbol < 'z') {
             System.out.printf("Имя %s начинается с маленькой буквы %s%n", nickname, firstSymbol);
-        } else if (((int) firstSymbol >= 65 && (int) firstSymbol <= 90)) {
+        } else if ((firstSymbol >= 'A' && firstSymbol <= 'Z')) {
             System.out.printf("Имя %s начинается с большой буквы %s%n", nickname, firstSymbol);
-        } else if (((int) firstSymbol >= 48 && (int) firstSymbol <= 57)) {
+        } else if ((firstSymbol >= '0') && (firstSymbol <= '9')) {
             System.out.printf("Имя %s начинается с цифры %s%n", nickname, firstSymbol);
-        } else if (((int) firstSymbol >= 0 && (int) firstSymbol <= 47) || 
-                ((int) firstSymbol >= 58 && (int) firstSymbol <= 64) || 
-                ((int) firstSymbol >= 91 && (int) firstSymbol <= 96) || 
-                ((int) firstSymbol >= 123 && (int) firstSymbol <= 127)) {
+        } else if ((firstSymbol >= 0 && firstSymbol <= 47) || 
+                (firstSymbol >= 58 && firstSymbol <= 64) || 
+                (firstSymbol >= 91 && firstSymbol <= 96) || 
+                (firstSymbol >= 123 && firstSymbol <= 127)) {
             System.out.printf("Имя %s начинается с символа %s%n", nickname, firstSymbol);
         }
         System.out.println("\n через Class Character");
         if (Character.isLetter(firstSymbol) && Character.isLowerCase(firstSymbol)) {
-            System.out.printf("Имя %s начинается с маленькой буквы %s%n ", nickname, firstSymbol);
+            register = "маленькой";
         } else if (Character.isLetter(firstSymbol) && Character.isUpperCase(firstSymbol)) {
-            System.out.printf("Имя %s начинается с большой буквы %s%n ", nickname, firstSymbol);
+            register = "большой";
         } 
-
+        System.out.printf("Имя %s начинается с %s буквы %s%n ", nickname, register, firstSymbol);
         System.out.println("\n\n5. ИНВЕНТАРИЗАЦИЯ");
         int databaseNumber = 123;
         int pcNumber = 923;
@@ -96,7 +110,7 @@ public class IfElseStatementTheme {
             }
         }
 
-        System.out.println("\n\n 6. ПОДСЧЕТ НАЧИСЛЕННЫХ БАНКОМ %");
+        System.out.println("\n\n6. ПОДСЧЕТ НАЧИСЛЕННЫХ БАНКОМ %");
         System.out.println("Первый способ, числа float без округления");
         float deposit = 321123.79f;
         float time = 1.0f;
@@ -127,5 +141,34 @@ public class IfElseStatementTheme {
                 Сумма начисленного %.2f
                 Итоговая сумма  с %% %.2f
                 \n""", depositBd, interests, finalMoneyBd);
+
+        System.out.println("\n\n7. ОПРЕДЕЛЕНИЕ ОЦЕНКИ ПО ПРЕДМЕТАМ");
+        int historyPercentage = 59;
+        int programmingPercentage = 92;
+        int historyGrade = grade(historyPercentage);
+        int programmingGrade = grade(programmingPercentage);
+        float everagePercentage = (historyPercentage + programmingPercentage) / 2f;
+        float everageGrade = (historyGrade + programmingGrade) / 2f;
+        System.out.printf("""
+            История %d
+            Программирование %d
+            Средний бал оценок по предметам %.1f
+            Средний %% по предметам %.1f
+                """, historyGrade, programmingGrade, everageGrade, everagePercentage);
+
+        System.out.println("\n\n8. РАСЧЕТ ГОДОВОЙ ПРИБЫЛИ");
+        var monthlyIncome = new BigDecimal("13025.233");
+        var rentFee = new BigDecimal("5123.018");
+        var primeCost = new BigDecimal("9001.729");
+        var yearRevenue = monthlyIncome
+                .subtract(rentFee)
+                .subtract(primeCost)
+                .multiply(new BigDecimal("12"))
+                .setScale(2, RoundingMode.HALF_UP);
+        if (yearRevenue.compareTo(BigDecimal.ZERO) == 1) {
+            System.out.printf("Прибыль за год: +%.2f \n", yearRevenue);
+        } else {
+            System.out.printf("Прибыль за год: %.2f \n", yearRevenue);
+        }
     }
 }
