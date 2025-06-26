@@ -35,7 +35,7 @@ public class IfElseStatementTheme {
             System.out.println("Довольно высокий");
         }
 
-        System.out.println("\n2. ПОИСК БОЛЬШЕГО ЧИСЛА ШАГОВ");
+        System.out.println("\n\n2. ПОИСК БОЛЬШЕГО ЧИСЛА ШАГОВ");
         int stepsYesterdayAmount = 6503;
         int stepsTodayAmount = 7804;
         var stepsAverageAmount = (float) (stepsTodayAmount + stepsYesterdayAmount) / 2;
@@ -50,7 +50,7 @@ public class IfElseStatementTheme {
         }
         System.out.printf("В среднем за день было пройдено %.2f шагов", stepsAverageAmount);
 
-        System.out.println("\n\n3. ПРОВЕРКА КОЛИЧЕСТВА ГОСТЕЙ");
+        System.out.println("\n\n\n3. ПРОВЕРКА КОЛИЧЕСТВА ГОСТЕЙ");
         int visitors = 2;
         if (visitors == 0) {
             System.out.println("Пока никто не записался на мероприятие!");
@@ -62,10 +62,10 @@ public class IfElseStatementTheme {
             System.out.printf("Записалось %d гостей. Нужны индивидуальные задания.", visitors);
         }
         
-        System.out.println("\n\n4. ОПРЕДЕЛЕНИЕ ПЕРВОГО СИМВОЛА НИКНЕЙМА");
-        System.out.println("\n через вхождение в диапазон ASCII кодов");
-        String nickname = "1John";
-        String register = "";
+        System.out.println("\n\n\n4. ОПРЕДЕЛЕНИЕ ПЕРВОГО СИМВОЛА НИКНЕЙМА");
+        System.out.println(" через вхождение в диапазон ASCII кодов");
+        String nickname = "$John";
+        String character = "";
         char firstSymbol = nickname.charAt(0);
         if (firstSymbol > 'a' && firstSymbol < 'z') {
             System.out.printf("Имя %s начинается с маленькой буквы %s%n", nickname, firstSymbol);
@@ -73,33 +73,34 @@ public class IfElseStatementTheme {
             System.out.printf("Имя %s начинается с большой буквы %s%n", nickname, firstSymbol);
         } else if ((firstSymbol >= '0') && (firstSymbol <= '9')) {
             System.out.printf("Имя %s начинается с цифры %s%n", nickname, firstSymbol);
-        } else if ((firstSymbol >= 0 && firstSymbol <= 47) || 
-                (firstSymbol >= 58 && firstSymbol <= 64) || 
-                (firstSymbol >= 91 && firstSymbol <= 96) || 
-                (firstSymbol >= 123 && firstSymbol <= 127)) {
+        } else {
             System.out.printf("Имя %s начинается с символа %s%n", nickname, firstSymbol);
         }
         System.out.println("\n через Class Character");
         if (Character.isLetter(firstSymbol) && Character.isLowerCase(firstSymbol)) {
-            register = "маленькой";
+            character = "маленькой буквы";
         } else if (Character.isLetter(firstSymbol) && Character.isUpperCase(firstSymbol)) {
-            register = "большой";
-        } 
-        System.out.printf("Имя %s начинается с %s буквы %s%n ", nickname, register, firstSymbol);
+            character = "большой буквы";
+        } else if (Character.isDigit(firstSymbol)) {
+            character = "цифры";
+        } else {
+            character = "символа"; 
+        }
+        System.out.printf("Имя %s начинается с %s %s%n ", nickname, character, firstSymbol);
+        
         System.out.println("\n\n5. ИНВЕНТАРИЗАЦИЯ");
         int databaseNumber = 123;
-        int pcNumber = 923;
+        int pcNumber = 173;
         if (databaseNumber == pcNumber) {
             System.out.printf("[№%d]: компьютер на 3-м этаже в кабинете 2 \n", pcNumber);
-        } else {
+        /* }  else {
             char hundreds = (databaseNumber / 100) == (pcNumber / 100) ?
                     (char) (databaseNumber / 100 + '0') : '_';
             char tens = (databaseNumber % 100 / 10) == (pcNumber % 100 / 10) ?
                     (char) (pcNumber % 100 / 10 + '0') : '_';
             char units = (databaseNumber % 10) == (pcNumber % 10) ?
                     (char) (databaseNumber % 10 + '0') : '_';
-            String fact = "" + hundreds + tens + units;
-            if (!fact.equals("___")) {
+            if (hundreds == '_' || tens == '_' || units == '_') {
                 System.out.printf("""
                         Нет полного совпадения:
                         База данных: [№%d]
@@ -108,39 +109,49 @@ public class IfElseStatementTheme {
             } else {
                 System.out.printf("[№%d]: оборудование не идентифицированно\n", pcNumber);
             }
+        } */
+        } else {
+            boolean isEqualHundreds = (databaseNumber / 100) == (pcNumber / 100);
+            boolean isEqualTens = (databaseNumber % 100 / 10) == (pcNumber % 100 / 10);
+            boolean isEqualUnits = (databaseNumber % 10) == (pcNumber % 10);
+            System.out.printf("""
+                    Нет полного совпадения:
+                    База данных: [№%d]
+                    Фактический: [№%c%c%c]
+                    """, databaseNumber, 
+                    isEqualHundreds ? (char) (databaseNumber / 100 + '0') : '_',
+                    isEqualTens ? (char) (pcNumber % 100 / 10 + '0') : '_',
+                    isEqualUnits ? (char) (databaseNumber % 10 + '0') : '_');
         }
 
         System.out.println("\n\n6. ПОДСЧЕТ НАЧИСЛЕННЫХ БАНКОМ %");
         System.out.println("Первый способ, числа float без округления");
         float deposit = 321123.79f;
-        float time = 1.0f;
-        float interestRate;
-        if (deposit < 100000) {
-            interestRate = 0.05f;
-        } else if (deposit >= 100000 && deposit <= 300000) {
+        float interestRate = 0.05f;
+        if (deposit >= 100000 && deposit <= 300000) {
             interestRate = 0.07f;
-        } else {
+        } else if (deposit > 300000) {
             interestRate = 0.1f;
         }
-        float interests = deposit * time * interestRate;
-        float finalMoney = deposit + interests;
+        float interest = deposit * interestRate;
+        float finalMoney = deposit + interest;
         System.out.printf("""
+                Ставка %f
                 Сумма вклада %f
                 Сумма начисленного %f
                 Итоговая сумма  с %% %f
-                \n""", deposit, interests, finalMoney);
+                %n""", interestRate, deposit, interest, finalMoney);
 
         System.out.println("Второй способ, через BigDecimal c округлением");
         var depositBd = new BigDecimal("321123.79");
         var interestsBd = depositBd
-                .multiply(BigDecimal.valueOf(time))
                 .multiply(BigDecimal.valueOf(interestRate));
         var finalMoneyBd = depositBd.add(interestsBd).setScale(2, RoundingMode.HALF_UP);
         System.out.printf("""
                 Сумма вклада %.2f
                 Сумма начисленного %.2f
                 Итоговая сумма  с %% %.2f
-                \n""", depositBd, interests, finalMoneyBd);
+                """, depositBd, interest, finalMoneyBd);
 
         System.out.println("\n\n7. ОПРЕДЕЛЕНИЕ ОЦЕНКИ ПО ПРЕДМЕТАМ");
         int historyPercentage = 59;
@@ -150,10 +161,10 @@ public class IfElseStatementTheme {
         float everagePercentage = (historyPercentage + programmingPercentage) / 2f;
         float everageGrade = (historyGrade + programmingGrade) / 2f;
         System.out.printf("""
-            История %d
-            Программирование %d
-            Средний бал оценок по предметам %.1f
-            Средний %% по предметам %.1f
+                История %d
+                Программирование %d
+                Средний бал оценок по предметам %.1f
+                Средний %% по предметам %.1f
                 """, historyGrade, programmingGrade, everageGrade, everagePercentage);
 
         System.out.println("\n\n8. РАСЧЕТ ГОДОВОЙ ПРИБЫЛИ");
