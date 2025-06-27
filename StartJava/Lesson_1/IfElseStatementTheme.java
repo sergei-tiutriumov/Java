@@ -68,18 +68,19 @@ public class IfElseStatementTheme {
         String character = "";
         char firstSymbol = nickname.charAt(0);
         if (firstSymbol > 'a' && firstSymbol < 'z') {
-            System.out.printf("Имя %s начинается с маленькой буквы %s%n", nickname, firstSymbol);
-        } else if ((firstSymbol >= 'A' && firstSymbol <= 'Z')) {
-            System.out.printf("Имя %s начинается с большой буквы %s%n", nickname, firstSymbol);
-        } else if ((firstSymbol >= '0') && (firstSymbol <= '9')) {
-            System.out.printf("Имя %s начинается с цифры %s%n", nickname, firstSymbol);
-        } else {
-            System.out.printf("Имя %s начинается с символа %s%n", nickname, firstSymbol);
-        }
-        System.out.println("\n через Class Character");
-        if (Character.isLetter(firstSymbol) && Character.isLowerCase(firstSymbol)) {
             character = "маленькой буквы";
-        } else if (Character.isLetter(firstSymbol) && Character.isUpperCase(firstSymbol)) {
+        } else if ((firstSymbol >= 'A' && firstSymbol <= 'Z')) {
+            character = "большой буквы";
+        } else if ((firstSymbol >= '0') && (firstSymbol <= '9')) {
+            character = "цифры";
+        } else {
+            character = "символа"; 
+        }
+        System.out.printf("Имя %s начинается с %s %s%n ", nickname, character, firstSymbol);
+        System.out.println("\n через класс Character");
+        if (Character.isLowerCase(firstSymbol)) {
+            character = "маленькой буквы";
+        } else if (Character.isUpperCase(firstSymbol)) {
             character = "большой буквы";
         } else if (Character.isDigit(firstSymbol)) {
             character = "цифры";
@@ -89,39 +90,22 @@ public class IfElseStatementTheme {
         System.out.printf("Имя %s начинается с %s %s%n ", nickname, character, firstSymbol);
         
         System.out.println("\n\n5. ИНВЕНТАРИЗАЦИЯ");
-        int databaseNumber = 123;
+        int dbNumber = 123;
         int pcNumber = 173;
-        if (databaseNumber == pcNumber) {
+        if (dbNumber == pcNumber) {
             System.out.printf("[№%d]: компьютер на 3-м этаже в кабинете 2 \n", pcNumber);
-        /* }  else {
-            char hundreds = (databaseNumber / 100) == (pcNumber / 100) ?
-                    (char) (databaseNumber / 100 + '0') : '_';
-            char tens = (databaseNumber % 100 / 10) == (pcNumber % 100 / 10) ?
-                    (char) (pcNumber % 100 / 10 + '0') : '_';
-            char units = (databaseNumber % 10) == (pcNumber % 10) ?
-                    (char) (databaseNumber % 10 + '0') : '_';
-            if (hundreds == '_' || tens == '_' || units == '_') {
-                System.out.printf("""
-                        Нет полного совпадения:
-                        База данных: [№%d]
-                        Фактический: [№%c%c%c]
-                        """, databaseNumber, hundreds, tens, units);
-            } else {
-                System.out.printf("[№%d]: оборудование не идентифицированно\n", pcNumber);
-            }
-        } */
         } else {
-            boolean isEqualHundreds = (databaseNumber / 100) == (pcNumber / 100);
-            boolean isEqualTens = (databaseNumber % 100 / 10) == (pcNumber % 100 / 10);
-            boolean isEqualUnits = (databaseNumber % 10) == (pcNumber % 10);
+            boolean isEqualHundreds = (dbNumber / 100) == (pcNumber / 100);
+            boolean isEqualTens = (dbNumber % 100 / 10) == (pcNumber % 100 / 10);
+            boolean isEqualUnits = (dbNumber % 10) == (pcNumber % 10);
             System.out.printf("""
                     Нет полного совпадения:
                     База данных: [№%d]
-                    Фактический: [№%c%c%c]
-                    """, databaseNumber, 
-                    isEqualHundreds ? (char) (databaseNumber / 100 + '0') : '_',
-                    isEqualTens ? (char) (pcNumber % 100 / 10 + '0') : '_',
-                    isEqualUnits ? (char) (databaseNumber % 10 + '0') : '_');
+                    Фактический: [№%s%s%s]
+                    """, dbNumber, 
+                    isEqualHundreds ? (dbNumber / 100) : "_",
+                    isEqualTens ? (dbNumber % 100 / 10) : "_",
+                    isEqualUnits ? (dbNumber % 10) : "_");
         }
 
         System.out.println("\n\n6. ПОДСЧЕТ НАЧИСЛЕННЫХ БАНКОМ %");
@@ -158,14 +142,14 @@ public class IfElseStatementTheme {
         int programmingPercentage = 92;
         int historyGrade = grade(historyPercentage);
         int programmingGrade = grade(programmingPercentage);
-        float everagePercentage = (historyPercentage + programmingPercentage) / 2f;
-        float everageGrade = (historyGrade + programmingGrade) / 2f;
+        float averagePercentage = (historyPercentage + programmingPercentage) / 2f;
+        float averageGrade = (historyGrade + programmingGrade) / 2f;
         System.out.printf("""
                 История %d
                 Программирование %d
                 Средний бал оценок по предметам %.1f
                 Средний %% по предметам %.1f
-                """, historyGrade, programmingGrade, everageGrade, everagePercentage);
+                """, historyGrade, programmingGrade, averageGrade, averagePercentage);
 
         System.out.println("\n\n8. РАСЧЕТ ГОДОВОЙ ПРИБЫЛИ");
         var monthlyIncome = new BigDecimal("13025.233");
