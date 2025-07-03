@@ -42,5 +42,6 @@ dist/
 .env
 *.orig
 *.rej 
+*.xml
 
 
