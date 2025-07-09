@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class CyclesTheme {
     public static void main(String[] args) {
         System.out.println("\n\n1. ВЫВОД ASCII-СИМВОЛОВ");
@@ -65,6 +67,92 @@ public class CyclesTheme {
         for (int item : numbers) {
             System.out.printf("%d ", item);
         }
-        System.out.println("");
+        System.out.println();
+
+        System.out.println("\n\nРАЗНЫЕ ОПЕРАЦИИ НАД ЧИСЛОМ");
+        int originNumber = 2234321;
+        String stringNumber = "" + originNumber;
+        char[] arrayNumber = stringNumber.toCharArray();
+        for (int i = 0; i < (arrayNumber.length - 1) / 2 - 1; i++) {
+            char swap = arrayNumber[i];
+            arrayNumber[i] = arrayNumber[(arrayNumber.length - i) - 1];
+            arrayNumber[(arrayNumber.length - i) - 1] = swap;
+        }
+        String reversedNumber = String.valueOf(arrayNumber);
+        int sameDigitCounter = 0;
+        for (char i : arrayNumber) {
+            if (i == '2') {
+                sameDigitCounter++;
+            }   
+        }
+        String isEven = (sameDigitCounter % 2) == 0 ? "четным" : "нечетным";
+        int palindromeCounter = 0;
+        for (int i = 0; i < (arrayNumber.length - 1) / 2 - 1; i++) {
+            if (arrayNumber[i] != arrayNumber[(arrayNumber.length - i) - 1]) {
+                palindromeCounter++;
+            }
+        }
+        String isPalindrome = palindromeCounter > 0 ? "не палиндром" : "палиндром";
+        System.out.printf("%d - %s c %s (%d) количеством двоек %n", 
+                originNumber, isPalindrome, isEven, sameDigitCounter);
+
+        System.out.println("\n\n7. ПРОВЕРКА СЧАСТЛИВОГО ЧИСЛА");
+        int luckyNumber = 101002;
+        int firstThreeDigits = luckyNumber / 1000;
+        String lastTreeDigits = String.valueOf(luckyNumber)
+                .replace(String.valueOf(firstThreeDigits), "")
+                .trim();
+        int firstSum = firstThreeDigits / 100 + firstThreeDigits % 100 / 10 + firstThreeDigits % 10;
+        int lastSum = Integer.parseInt(lastTreeDigits) / 100 +
+                      Integer.parseInt(lastTreeDigits) % 100 / 10 +
+                      Integer.parseInt(lastTreeDigits) % 10;
+        System.out.printf("""
+            %d - счастливое число
+            Сумма цифр %d = %d
+            Сумма цифр %s = %d
+                """, luckyNumber, firstThreeDigits, firstSum, lastTreeDigits, lastSum);
+
+        System.out.println("\n\n8. ГЕНЕРАТОР ПАРОЛЯ");
+        Random r = new Random();
+        int ch;
+        String password = "";
+        for (int i = 1; i < 9; i++) {
+            ch = r.nextInt(32, 127);
+            password += (char) ch;
+        }
+        boolean hasSmallLetter = false;
+        boolean hasCapitalLetter = false;
+        boolean hasSpecSymbol = false;
+        boolean hasDigit = false;
+        boolean isMoreSeven = password.length() >= 8 ? true : false; 
+        for (char symbol : password.toCharArray()) {
+            if (Character.isUpperCase(symbol)) {
+                hasCapitalLetter = true;
+                continue;
+            }
+            if (Character.isLowerCase(symbol)) {
+                hasSmallLetter = true;
+                continue;
+            }
+            if (!Character.isLetterOrDigit(symbol)) {
+                hasSpecSymbol = true;
+                continue;
+            }
+            if (Character.isDigit(symbol)) {
+                hasDigit = true;
+            }
+        }
+        String security = "";
+        if (isMoreSeven && hasSmallLetter && hasCapitalLetter && hasSpecSymbol) {
+            security = "Надежный";
+        } else if (isMoreSeven && (hasCapitalLetter || hasDigit)) {
+            security = "Средний";
+        } else {
+            security = "Слабый";
+        }
+        System.out.printf("""
+                Пароль: %s
+                Надежность: %s
+                """, password, security);
     }
 }
