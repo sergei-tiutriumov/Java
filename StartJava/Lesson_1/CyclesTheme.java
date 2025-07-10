@@ -16,13 +16,13 @@ public class CyclesTheme {
         }
 
         System.out.println("\n\n2. ВЫВОД ГЕОМЕТРИЧЕСКИХ ФИГУР");
-        for (int j = 0; j < 5; j++) {
+        for (int i = 0; i < 5; i++) {
             System.out.print("__________ ");
-            for (int i = 5 - j; i > 0; i--) {
+            for (int j = 5 - i; j > 0; j--) {
                 System.out.print("*");
             }
             System.out.print(" ");
-            for (int i = 0; i < j * 2 + 1; i++) {
+            for (int k = 0; k < i * 2 + 1; k++) {
                 System.out.print("^");
             }
             System.out.println();
@@ -33,8 +33,7 @@ public class CyclesTheme {
         for (int i = 2; i <= 9; i++) {
             System.out.printf("%d |", i);
             for (int j = 2; j <= 9; j++) {
-                int result = i * j;
-                System.out.printf("%2d ", result);
+                System.out.printf("%2d ", i * j);
             }
             System.out.println();
         }
@@ -43,7 +42,7 @@ public class CyclesTheme {
         int limitNumber = 30;
         int maxValue = 24;
         for (int i = 1; i < limitNumber; i += 2) {
-            if (((i - 9) % 10 == 0) && (i < 24)) {
+            if (((i - 9) % 10 == 0) && (i < maxValue)) {
                 System.out.printf("%2d\n", i);
             } else if (i < maxValue) {
                 System.out.printf("%2d ", i);
@@ -51,65 +50,57 @@ public class CyclesTheme {
                 System.out.printf("%2d ", 0);
             }
         }
-        System.out.println();
     
-        System.out.println("\n\n5. ВЫВОД ЧИСЕЛ МЕЖДУ MIN И MAX");
-        int[] numbers = {10, 5, -1};
-        for (int i = 0; i < numbers.length - 1; i++) {
-            for (int j = 0; j < numbers.length - i - 1; j++) {
-                if (numbers[j] > numbers[j + 1]) {
-                    int swap = numbers[j];
-                    numbers[j] = numbers[j + 1];
-                    numbers[j + 1] = swap;
-                }
-            }
-        } 
-        for (int item : numbers) {
-            System.out.printf("%d ", item);
+        System.out.println("\n\n\n5. ВЫВОД ЧИСЕЛ МЕЖДУ MIN И MAX");
+        int a = 10;
+        int b = 5;
+        int c = -1;
+        int max = a > b ? (a > c ? a : c) : (b > c ? b : c);
+        int min = a < b ? (a < c ? a : c) : (b < c ? b : c);
+        for (int i = min; i <= max; i++) {
+            System.out.printf("%d ", i);
         }
-        System.out.println();
 
-        System.out.println("\n\nРАЗНЫЕ ОПЕРАЦИИ НАД ЧИСЛОМ");
+        System.out.println("\n\n\n6. РАЗНЫЕ ОПЕРАЦИИ НАД ЧИСЛОМ");
         int originNumber = 2234321;
-        String stringNumber = "" + originNumber;
-        char[] arrayNumber = stringNumber.toCharArray();
-        for (int i = 0; i < (arrayNumber.length - 1) / 2 - 1; i++) {
-            char swap = arrayNumber[i];
-            arrayNumber[i] = arrayNumber[(arrayNumber.length - i) - 1];
-            arrayNumber[(arrayNumber.length - i) - 1] = swap;
-        }
-        String reversedNumber = String.valueOf(arrayNumber);
-        int sameDigitCounter = 0;
-        for (char i : arrayNumber) {
-            if (i == '2') {
-                sameDigitCounter++;
-            }   
-        }
-        String isEven = (sameDigitCounter % 2) == 0 ? "четным" : "нечетным";
-        int palindromeCounter = 0;
-        for (int i = 0; i < (arrayNumber.length - 1) / 2 - 1; i++) {
-            if (arrayNumber[i] != arrayNumber[(arrayNumber.length - i) - 1]) {
-                palindromeCounter++;
+        int initial = originNumber;
+        int counter = 0;
+        int reversedNumber = 0;
+        while (initial != 0) {
+            int digit = initial % 10;
+            reversedNumber = reversedNumber * 10 + digit;
+            initial /= 10;
+            if (digit == 2) {
+                counter++;
             }
         }
-        String isPalindrome = palindromeCounter > 0 ? "не палиндром" : "палиндром";
+        String isEven = counter % 2 == 0 ? "четным" : "нечетным";
+        String isPalindrome = originNumber == reversedNumber ? "палиндром" : "не палиндром";
         System.out.printf("%d - %s c %s (%d) количеством двоек %n", 
-                originNumber, isPalindrome, isEven, sameDigitCounter);
+                originNumber, isPalindrome, isEven, counter);
 
         System.out.println("\n\n7. ПРОВЕРКА СЧАСТЛИВОГО ЧИСЛА");
         int luckyNumber = 101002;
         int firstThreeDigits = luckyNumber / 1000;
-        String lastTreeDigits = String.valueOf(luckyNumber)
-                .replace(String.valueOf(firstThreeDigits), "")
-                .trim();
-        int firstSum = firstThreeDigits / 100 + firstThreeDigits % 100 / 10 + firstThreeDigits % 10;
-        int lastSum = Integer.parseInt(lastTreeDigits) / 100 +
-                      Integer.parseInt(lastTreeDigits) % 100 / 10 +
-                      Integer.parseInt(lastTreeDigits) % 10;
+        int lastTreeDigits = luckyNumber % 1000;
+        int firstSum = 0;
+        int lastSum = 0;
+        int head = firstThreeDigits;
+        int tail = lastTreeDigits;
+        while (head != 0) {
+            int digit = head % 10;
+            firstSum += digit;
+            head /= 10;
+        }
+        while (tail != 0) {
+            int digit = tail % 10;
+            lastSum += digit;
+            tail /= 10;
+        }
         System.out.printf("""
             %d - счастливое число
             Сумма цифр %d = %d
-            Сумма цифр %s = %d
+            Сумма цифр 00%d = %d
                 """, luckyNumber, firstThreeDigits, firstSum, lastTreeDigits, lastSum);
 
         System.out.println("\n\n8. ГЕНЕРАТОР ПАРОЛЯ");
