@@ -22,7 +22,7 @@ public class CyclesTheme {
                 System.out.print("*");
             }
             System.out.print(" ");
-            for (int k = 0; k < i * 2 + 1; k++) {
+            for (int j = 0; j < i * 2 + 1; j++) {
                 System.out.print("^");
             }
             System.out.println();
@@ -39,13 +39,17 @@ public class CyclesTheme {
         }
 
         System.out.println("\n\n4. ВЫВОД ЧИСЕЛ В НЕСКОЛЬКО СТРОК");
-        int limitNumber = 30;
+        int numbersPerString = 5;
+        int amountOfStrings = 3;
         int maxValue = 24;
-        for (int i = 1; i < limitNumber; i += 2) {
-            if (((i - 9) % 10 == 0) && (i < maxValue)) {
-                System.out.printf("%2d\n", i);
-            } else if (i < maxValue) {
+        int border = numbersPerString * amountOfStrings * 2;
+        for (int i = 1, positionCounter = 1; i < border; i += 2) {
+            if ((i < maxValue) && (positionCounter < numbersPerString)) {
                 System.out.printf("%2d ", i);
+                positionCounter++;
+            } else if ((i < maxValue) && (positionCounter == numbersPerString)) {
+                System.out.printf("%2d%n", i);
+                positionCounter = 1;
             } else {
                 System.out.printf("%2d ", 0);
             }
@@ -57,27 +61,27 @@ public class CyclesTheme {
         int c = -1;
         int max = a > b ? (a > c ? a : c) : (b > c ? b : c);
         int min = a < b ? (a < c ? a : c) : (b < c ? b : c);
-        for (int i = min; i <= max; i++) {
+        for (int i = max - 1; i > min; i--) {
             System.out.printf("%d ", i);
         }
 
         System.out.println("\n\n\n6. РАЗНЫЕ ОПЕРАЦИИ НАД ЧИСЛОМ");
         int originNumber = 2234321;
-        int initial = originNumber;
-        int counter = 0;
+        int currNumber = originNumber;
+        int digitCount = 0;
         int reversedNumber = 0;
-        while (initial != 0) {
-            int digit = initial % 10;
+        while (currNumber > 0) {
+            int digit = currNumber % 10;
             reversedNumber = reversedNumber * 10 + digit;
-            initial /= 10;
+            currNumber /= 10;
             if (digit == 2) {
-                counter++;
+                digitCount++;
             }
         }
-        String isEven = counter % 2 == 0 ? "четным" : "нечетным";
+        String isEven = digitCount % 2 == 0 ? "четным" : "нечетным";
         String isPalindrome = originNumber == reversedNumber ? "палиндром" : "не палиндром";
         System.out.printf("%d - %s c %s (%d) количеством двоек %n", 
-                originNumber, isPalindrome, isEven, counter);
+                originNumber, isPalindrome, isEven, digitCount);
 
         System.out.println("\n\n7. ПРОВЕРКА СЧАСТЛИВОГО ЧИСЛА");
         int luckyNumber = 101002;
@@ -85,17 +89,15 @@ public class CyclesTheme {
         int lastTreeDigits = luckyNumber % 1000;
         int firstSum = 0;
         int lastSum = 0;
-        int head = firstThreeDigits;
-        int tail = lastTreeDigits;
-        while (head != 0) {
-            int digit = head % 10;
+        int first = firstThreeDigits;
+        int second = lastTreeDigits;
+        for (int i = 3; i > 0; i--) {
+            int digit = first % 10;
             firstSum += digit;
-            head /= 10;
-        }
-        while (tail != 0) {
-            int digit = tail % 10;
+            first /= 10;
+            digit = second % 10;
             lastSum += digit;
-            tail /= 10;
+            second /= 10;
         }
         System.out.printf("""
             %d - счастливое число
@@ -108,7 +110,7 @@ public class CyclesTheme {
         int ch;
         String password = "";
         for (int i = 1; i < 9; i++) {
-            ch = r.nextInt(32, 127);
+            ch = r.nextInt(33, 126);
             password += (char) ch;
         }
         boolean hasSmallLetter = false;
