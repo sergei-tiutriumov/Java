@@ -40,21 +40,16 @@ public class CyclesTheme {
 
         System.out.println("\n\n4. ВЫВОД ЧИСЕЛ В НЕСКОЛЬКО СТРОК");
         int numbersPerString = 5;
-        int amountOfStrings = 3;
         int maxValue = 24;
-        int border = numbersPerString * amountOfStrings * 2;
-        for (int i = 1, positionCounter = 1; i < border; i += 2) {
-            if ((i < maxValue) && (positionCounter < numbersPerString)) {
-                System.out.printf("%2d ", i);
-                positionCounter++;
-            } else if ((i < maxValue) && (positionCounter == numbersPerString)) {
-                System.out.printf("%2d%n", i);
-                positionCounter = 1;
-            } else {
-                System.out.printf("%2d ", 0);
+        int number = 1;
+        while (number < maxValue) {
+            for (int i = 0; i < numbersPerString; i++) {
+                System.out.printf("%3d", number < maxValue ? number : 0);
+                number += 2;
             }
+            System.out.println();
         }
-    
+
         System.out.println("\n\n\n5. ВЫВОД ЧИСЕЛ МЕЖДУ MIN И MAX");
         int a = 10;
         int b = 5;
@@ -68,20 +63,20 @@ public class CyclesTheme {
         System.out.println("\n\n\n6. РАЗНЫЕ ОПЕРАЦИИ НАД ЧИСЛОМ");
         int originNumber = 2234321;
         int currNumber = originNumber;
-        int digitCount = 0;
+        int twosCount = 0;
         int reversedNumber = 0;
         while (currNumber > 0) {
             int digit = currNumber % 10;
             reversedNumber = reversedNumber * 10 + digit;
             currNumber /= 10;
             if (digit == 2) {
-                digitCount++;
+                twosCount++;
             }
         }
-        String isEven = digitCount % 2 == 0 ? "четным" : "нечетным";
+        String isEven = twosCount % 2 == 0 ? "четным" : "нечетным";
         String isPalindrome = originNumber == reversedNumber ? "палиндром" : "не палиндром";
         System.out.printf("%d - %s c %s (%d) количеством двоек %n", 
-                originNumber, isPalindrome, isEven, digitCount);
+                originNumber, isPalindrome, isEven, twosCount);
 
         System.out.println("\n\n7. ПРОВЕРКА СЧАСТЛИВОГО ЧИСЛА");
         int luckyNumber = 101002;
@@ -107,18 +102,15 @@ public class CyclesTheme {
 
         System.out.println("\n\n8. ГЕНЕРАТОР ПАРОЛЯ");
         Random r = new Random();
-        int ch;
         String password = "";
-        for (int i = 1; i < 9; i++) {
-            ch = r.nextInt(33, 126);
-            password += (char) ch;
-        }
         boolean hasSmallLetter = false;
         boolean hasCapitalLetter = false;
         boolean hasSpecSymbol = false;
         boolean hasDigit = false;
-        boolean isMoreSeven = password.length() >= 8 ? true : false; 
-        for (char symbol : password.toCharArray()) {
+        for (int i = 1; i < 9; i++) {
+            int ch = r.nextInt(33, 126);
+            Character symbol = (char) ch;
+            password += symbol;
             if (Character.isUpperCase(symbol)) {
                 hasCapitalLetter = true;
                 continue;
@@ -135,6 +127,7 @@ public class CyclesTheme {
                 hasDigit = true;
             }
         }
+        boolean isMoreSeven = password.length() >= 8 ? true : false; 
         String security = "";
         if (isMoreSeven && hasSmallLetter && hasCapitalLetter && hasSpecSymbol) {
             security = "Надежный";
