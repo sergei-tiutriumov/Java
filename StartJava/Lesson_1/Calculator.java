@@ -9,6 +9,7 @@ public class Calculator {
             scanner.nextLine();
             System.out.printf("Введите первое число ");
         }
+
         int firstNumber = scanner.nextInt();
         System.out.printf("%nВведите второе число ");
         while (!scanner.hasNextInt()) {
@@ -16,6 +17,7 @@ public class Calculator {
             scanner.nextLine();
             System.out.printf("Введите второе число ");
         }
+
         int secondNumber = scanner.nextInt(); 
         scanner.nextLine();
         System.out.printf("%nВведите арифметическое действие ");
@@ -26,16 +28,14 @@ public class Calculator {
             operation.equals("/") ||
             operation.equals("^") ||
             operation.equals("%"))) {
-            System.out.println("Нет такого арифметического действия!");
-            System.out.printf("Введите арифметическое действие? ");
+            System.out.println("Ошибка: неизвестная арифметическая операция");
+            System.out.printf("Введите арифметическую операцию ");
             operation = scanner.nextLine();
         }
-        int result = -999999999;
+
+        int result = 0;
         if (operation.equals("^")) {
             result = pow(firstNumber, secondNumber);
-        }
-        if (operation.equals("+")) {
-            result = firstNumber + secondNumber;
         }
         if (operation.equals("-")) {
             result = firstNumber - secondNumber;
@@ -48,6 +48,9 @@ public class Calculator {
         }
         if (operation.equals("%")) {
             result = firstNumber % secondNumber;
+        }
+        else {
+            result = firstNumber + secondNumber;
         }
         System.out.printf("%n%d %s %d = %d %n", firstNumber, operation, secondNumber, result); 
     } 
