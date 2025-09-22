@@ -36,20 +36,15 @@ public class Calculator {
         int result = 0;
         if (operation.equals("^")) {
             result = pow(firstNumber, secondNumber);
-        }
-        if (operation.equals("-")) {
+        } else if (operation.equals("-")) {
             result = firstNumber - secondNumber;
-        }
-        if (operation.equals("*")) {
+        } else if (operation.equals("*")) {
             result = firstNumber * secondNumber;
-        }
-        if (operation.equals("/")) {
+        } else if (operation.equals("/")) {
             result = firstNumber / secondNumber;
-        }
-        if (operation.equals("%")) {
+        } else if (operation.equals("%")) {
             result = firstNumber % secondNumber;
-        }
-        else {
+        } else {
             result = firstNumber + secondNumber;
         }
         System.out.printf("%n%d %s %d = %d %n", firstNumber, operation, secondNumber, result); 
