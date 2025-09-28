@@ -7,7 +7,7 @@ public class WolfTest {
         wolfy.setAge(6);
         wolfy.setHue("gray");
         System.out.printf("\nПол - %s\nКличка - %s\nВес - %.1f кг\nЦвет - %s\n", 
-                    wolfy.getSex(), wolfy.getNickname(), wolfy.getWeight(), wolfy.getHue());
+                 wolfy.getSex(), wolfy.getNickname(), wolfy.getWeight(), wolfy.getHue());
         System.out.println("Возраст - " + wolfy.getAge());
     }
 }
